@@ -2,13 +2,15 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const redis = require('redis');
+import { Redis } from '@upstash/redis'
 const app = express();
 
 // Redis setup
-const redisClient = redis.createClient({
-  url: process.env.REDIS_URL || 'redis://localhost:6379'
-});
+
+const redisClient = new Redis({
+  url: process.env.UPSTASH_REDIS_URL,
+  token: process.env.UPSTASH_REDIS_TOKEN,
+})
 
 redisClient.connect().catch(err => {
   console.error('Redis connection error:', err);
