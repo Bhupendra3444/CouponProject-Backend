@@ -12,10 +12,7 @@ const redisClient = new Redis({
   token: process.env.UPSTASH_REDIS_TOKEN,
 })
 
-redisClient.connect().catch(err => {
-  console.error('Redis connection error:', err);
-  process.exit(1);
-});
+
 
 // Middleware
 app.use(cors({ origin: true, credentials: true }));
