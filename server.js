@@ -2,7 +2,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-import { Redis } from '@upstash/redis'
+const { Redis } = require('@upstash/redis');
 const app = express();
 
 // Redis setup
