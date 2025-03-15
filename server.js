@@ -59,7 +59,7 @@ app.post('/api/claim', async (req, res) => {
     currentIndex = (currentIndex + 1) % coupons.length;
 
     // Update Redis with IP cooldown
-    await redisClient.setEx(redisKey, COOLDOWN, 'blocked');
+    await redisClient.set(redisKey, 'blocked', { ex: COOLDOWN });
 
     // Set cookie
     const expiryDate = new Date(Date.now() + COOLDOWN * 1000);
