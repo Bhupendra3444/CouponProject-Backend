@@ -24,6 +24,10 @@ app.use(cookieParser());
 const coupons = ['COUPON1', 'COUPON2', 'COUPON3', 'COUPON4', 'COUPON5'];
 let currentIndex = 0;
 const COOLDOWN = 3600; // 1 hour in seconds
+app.get('/', (req, res) => {
+    res.json("hello");
+    
+  });
 
 // API Endpoint: Claim Coupon
 app.post('/api/claim', async (req, res) => {
